@@ -37,13 +37,8 @@ class Sudoku:
 
     def value_at(self, x: int, y: int) -> int:
         """Returns the value at x,y."""
-        value = -1
-
-        for i in range(9):
-            for j in range(9):
-                if i == x and j == y:
-                    row = self._grid[y]
-                    value = int(row[x])
+        row = self._grid[y]
+        value = int(row[x])
 
         return value
 
@@ -128,6 +123,10 @@ class Sudoku:
         only the numbers 1 through 9. False otherwise.
         """
         values = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        for value in values:
+            if value == 0:
+                result = False
 
         result = True
 
